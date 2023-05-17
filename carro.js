@@ -1,0 +1,32 @@
+let xCarros = [600, 600, 600, 600, 600, 600];
+let yCarros = [40, 96, 150, 210, 270, 318];
+let vCarros = [2, 2.5, 3.2, 5, 3.3, 2.3];
+
+//carro 1
+let larguraCarro = 50;
+let alturaCarro = 40;
+
+
+function mostraCarro(){
+  for (let i = 0; i < imagemCarros.length; i++){
+    image(imagemCarros[i], xCarros[i], yCarros[i], larguraCarro, alturaCarro)
+  }
+}
+
+function movimentaCarro(){
+  for (let i = 0; i < imagemCarros.length; i ++){
+    xCarros[i] -= vCarros[i];
+  }
+}
+
+function voltaPosicaoInicialCarro(){
+  for (let i = 0; i < imagemCarros.length; i ++){
+    if (passouTodaATela(xCarros[i])){
+      xCarros[i] = 600;
+    }
+  }
+}
+
+function passouTodaATela(xCarros){
+  return xCarros < -50;
+}
